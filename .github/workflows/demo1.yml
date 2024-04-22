@@ -5,6 +5,13 @@ on:
       - opened
       - edited
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*' # dev-new, dev-this-new-branch
+      - 'feat/**' #feat/new, feat/new/branch
+    paths-ignore:
+      - '.github/workflows/*' #means here wf should not trigger since we changed this file
 jobs:
   deploy:
     runs-on: ubuntu-latest
